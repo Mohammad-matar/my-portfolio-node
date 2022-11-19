@@ -33,12 +33,12 @@ class Controller {
   //edit
   put(req, res, next) {
     let { id } = req.params;
-    let body = req.body;
+    let {name} = req.body;
+    let { filename } = req.file || {};
+     let data = {name: name, img:filename};
     skills.updateOne(
       { _id: id },
-      {
-        $set: body,
-      },
+      data,
       (err, response) => {
         if (err) return next(err);
         res.status(200).send({ success: true, response });

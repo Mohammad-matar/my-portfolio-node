@@ -21,9 +21,8 @@ class Controller {
 
   //add
   post(req, res, next) {
-    // let { filename } = req.file;
-    let { name, info, details } = req.body;
-    let body = { name: name, info: info, details: details };
+    let { name, info } = req.body;
+    let body = { name: name, info: info };
 
     let doc = new Experience(body);
     doc.save((err, response) => {
