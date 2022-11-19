@@ -19,9 +19,9 @@ class Controller {
 
   //add
   post(req, res, next) {
-    // let { filename } = req.file;
-    let { name, img } = req.body;
-    let body = { name: name, img };
+    let { filename } = req.file;
+    let { name } = req.body;
+    let body = { name: name, img: filename };
 
     let doc = new skills(body);
     doc.save((err, response) => {
