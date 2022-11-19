@@ -20,9 +20,9 @@ class Controller {
 
   //add
   post(req, res, next) {
-    // let { filename } = req.file;
-    let { name, description, img } = req.body;
-    let body = { name: name, description: description, img };
+    let { filename } = req.file;
+    let { name, description } = req.body;
+    let body = { name: name, description: description, img: filename };
 
     let doc = new personalinfo(body);
     doc.save((err, response) => {
