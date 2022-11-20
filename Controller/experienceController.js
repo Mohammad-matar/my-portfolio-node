@@ -21,9 +21,7 @@ class Controller {
 
   //add
   post(req, res, next) {
-    let { name, info } = req.body;
-    let body = { name: name, info: info };
-
+    let body = req.body;
     let doc = new Experience(body);
     doc.save((err, response) => {
       if (err) return next(err);
